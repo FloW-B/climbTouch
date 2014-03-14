@@ -2,7 +2,7 @@
 	"name": "com.fberton.climbtouch",
 	"description": "ClimbTouch Application",
 	"author": "fberton",
-	"version": "0.0.0",
+	"version": "0.1.0",
 	"dependencies": {},
 	"devDependencies": {
 		"grunt": ">=0.4.0",
