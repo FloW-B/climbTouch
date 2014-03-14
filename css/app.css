@@ -1,0 +1,64 @@
+﻿body {
+  padding-top: 70px;
+}
+#top-menu .navbar-search {
+  width: 250px;
+}
+#applicationHost .splash {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: #ccc;
+  text-align: center;
+}
+#applicationHost .splash h1 {
+  font-variant: small-caps;
+  padding: 100px 0;
+  margin: 0;
+}
+.router-loader {
+  position: fixed;
+  top: 70px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.8);
+  z-index: 9999;
+}
+.router-loader i {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: -0.5em;
+  margin-left: -0.5em;
+}
+.list-sites {
+  padding: 0;
+}
+.list-sites li {
+  padding: 0;
+  list-style: none;
+  float: left;
+  width: 200px;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+.list-sites li a {
+  color: #000000;
+  text-decoration: none;
+}
+.list-sites li .img-container {
+  height: 126px;
+  overflow: hidden;
+}
+.div-button-container button {
+  float: right;
+}
+#map_canvas {
+  width: 100%;
+  height: 500px;
+  margin: 0 auto;
+}
+/*# sourceMappingURL=app.css.map */

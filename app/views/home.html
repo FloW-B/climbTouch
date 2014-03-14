@@ -1,0 +1,28 @@
+<div class="div-button-container">
+    <button data-bind="click:addSpotClick" type="button" class="btn btn-default">
+        <span class="glyphicon glyphicon-plus"></span> Add
+    </button>
+</div>
+
+<div class="page-header">
+    <h1>
+        Home
+        <small>ClimbTouch</small>
+    </h1>
+</div>
+
+<div id="map_canvas" data-bind="map:{ zoom: 8, center: center, markers: markers }"></div>
+
+<ul class="list-sites thumbnails clearfix" data-bind="foreach: sites">
+    <li>
+        <a href="#" class="thumbnail">
+            <div class="img-container">
+                <img alt="image" data-bind="attr: { src: 'http://climbtouch.com/sites/'+spotId+'.jpg'}" />
+            </div>
+            <h3 data-bind="text: name"></h3>
+            <h5 data-bind="text: ville"></h5>
+            <span data-bind="text: latitude"></span>
+            <span data-bind="text: longitude"></span>
+        </a>
+    </li>
+</ul>
