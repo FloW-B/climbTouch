@@ -1,5 +1,14 @@
 ﻿<div class="dialog dialog-spot" data-bind="with: spot">
     
     <h3 data-bind="text: title"></h3>
+    <label>Latitude: </label><span data-bind="text: latitude"></span><br/>
+    <label>Longitude: </label><span data-bind="text: longitude"></span><br/>
+    <label>Ville: </label><span data-bind="text: ville"></span>
 
+    <button data-bind="click: $parent.addStepClick" type="button" class="btn btn-default">
+        <span class="glyphicon glyphicon-plus"></span> Add Step
+    </button>
+    <button data-bind="click: $parent.close" type="button" class="btn btn-default">
+        <span class="glyphicon glyphicon-remove-circle"></span> Close
+    </button>
 </div>

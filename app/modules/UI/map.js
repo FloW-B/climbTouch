@@ -6,6 +6,7 @@
 
             var
                 gmap = google.maps,
+
                 value = ko.unwrap(valueAccessor()),
                 zoom = ko.unwrap(value.zoom),
                 center = ko.unwrap(value.center),
@@ -20,6 +21,7 @@
         update: function (element, valueAccessor, AllBindings, viewModel, bindingContext) {
             var
                 gmap = google.maps,
+
                 value = ko.unwrap(valueAccessor()),
                 zoom = ko.unwrap(value.zoom),
                 center = ko.unwrap(value.center),
@@ -48,8 +50,6 @@
 
                 return googleMarker;
             });
-
-
 
             map.setCenter(new gmap.LatLng(center.latitude, center.longitude));
             map.setZoom(zoom);

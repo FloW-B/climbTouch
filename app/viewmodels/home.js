@@ -10,6 +10,7 @@ define(["jquery","knockout", "durandal/app", "durandal/system", "plugins/router"
                 title: site.name,
                 latitude: site.latitude,
                 longitude: site.longitude,
+                ville: site.ville,
                 icon: 'http://climbtouch.com/sites/' + site.spotId + '.jpg',
                 click: onMarkerClick
             };

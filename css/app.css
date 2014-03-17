@@ -61,4 +61,21 @@
   height: 500px;
   margin: 0 auto;
 }
+.dialog {
+  padding: 15px;
+  background-color: white;
+  border-radius: 10px;
+}
+.dialog h3 {
+  color: grey;
+  margin: 0 auto 20px auto;
+}
+.dialog-spot button {
+  display: block;
+  margin: 10px auto 0 auto;
+}
+.dialog-spot label {
+  display: inline-block;
+  margin-right: 5px;
+}
 /*# sourceMappingURL=app.css.map */
