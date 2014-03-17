@@ -3,7 +3,7 @@
     var
     //Public Method
    
-    uploadFile = function uploadFile(fileObject,id) {
+    uploadFile = function uploadFile(fileObject,id,type) {
 
         return new Promise(function (resolve, reject) {
 
@@ -23,8 +23,8 @@
             var xhr = new XMLHttpRequest();
 
             // Open connection using the POST method
-            xhr.open("POST", 'http://climbtouch.com/upload.php?id='+id);
-
+            xhr.open("POST", 'http://climbtouch.com/upload.php?id=' + id + "&type=" + type);
+           
             xhr.onload = resolve;
             xhr.onerror = reject;
 

@@ -17,7 +17,7 @@ define(["jquery", "knockout", "promise", "durandal/app", "plugins/router", "mode
 
                     //get the fileObject
                     var file = document.getElementById('upload_file').files[0];
-                    return uploader.uploadFile(file,savedSpot.spotId);
+                    return uploader.uploadFile(file,savedSpot.spotId,"spot");
                 })
                 .then(function () { router.navigateBack(); });
         },

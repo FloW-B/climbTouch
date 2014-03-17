@@ -1,4 +1,4 @@
-﻿define(["knockout","plugins/router","models/step","modules/geoloc"],function (ko,router,Step,geolocation) {
+﻿define(["knockout","plugins/router","models/step","modules/geoloc","modules/uploader"],function (ko,router,Step,geolocation,uploader) {
     var
         //#region Attributes
 
@@ -40,10 +40,9 @@
 
                remoteSave(stepJson)
                    .then(function (savedStep) {
-                       alert("Step Saved");
                        //get the fileObject
-                       //var file = document.getElementById('upload_file').files[0];
-                       //return uploader.uploadFile(file,savedSpot.spotId);
+                       var file = document.getElementById('upload_file').files[0];
+                       return uploader.uploadFile(file,savedStep.stepId,"step");
                    })
                    .then(function () { router.navigateBack(); });
                 
