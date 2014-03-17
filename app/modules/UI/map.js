@@ -26,7 +26,25 @@
                 zoom = ko.unwrap(value.zoom),
                 center = ko.unwrap(value.center),
                 markers = ko.unwrap(value.markers),
+                markersStep = ko.unwrap(value.markersStep),
                 map = element.map;
+
+            markersStep = _.map(markersStep, function (marker) {
+
+                var googleMarker = new gmap.Marker({
+
+                    map: map,
+                    title: marker.title,
+                    position: new gmap.LatLng(marker.latitude, marker.longitude),
+                    icon: {
+                        url: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png',
+                        size: new gmap.Size(32, 32),
+                        scaledSize: new gmap.Size(32, 32)
+                    }
+                });
+
+                return googleMarker;
+            });
 
             markers = _.map(markers, function (marker) {
 
@@ -35,11 +53,11 @@
                     map: map,
                     title: marker.title,
                     position: new gmap.LatLng(marker.latitude, marker.longitude),
-                    icon: {
+                    /*icon: {
                         url: marker.icon,
                         size: new gmap.Size(32, 32),
                         scaledSize: new gmap.Size(32, 32)
-                    }
+                    }*/
                 });
 
                 gmap.event.addListener(googleMarker, 'click', function (e) {

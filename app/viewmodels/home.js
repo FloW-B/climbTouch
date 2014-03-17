@@ -4,6 +4,7 @@ define(["jquery","knockout", "durandal/app", "durandal/system", "plugins/router"
 
         isLoading = ko.observable(false),
         sites = ko.observableArray(),
+        gViewVisibility = ko.observable(false),
         markers = sites._map(function (site) {
             return {
                 spotId: site.spotId,
@@ -15,6 +16,7 @@ define(["jquery","knockout", "durandal/app", "durandal/system", "plugins/router"
                 click: onMarkerClick
             };
         }),
+        markersStep = ko.observableArray(),
         center = ko.computed(function () {
             var location = geoloc.currentLocation();
             if (location) {
@@ -31,6 +33,11 @@ define(["jquery","knockout", "durandal/app", "durandal/system", "plugins/router"
         // Event Handlers
 
         onMarkerClick = function (marker) {
+            gViewVisibility(true);
+            $.get("http://climbtouch.com/api/step/filter/" + marker.spotId).then(function (response) {
+
+                markersStep(response);
+            });
             app.showDialog("viewmodels/dialogs/spot",marker);
         },
 
@@ -59,9 +66,11 @@ define(["jquery","knockout", "durandal/app", "durandal/system", "plugins/router"
     return {
         
         isLoading: isLoading,
+        gViewVisibility: gViewVisibility,
         sites: sites,
         center: center,
         markers: markers,
+        markersStep: markersStep,
 
         addSpotClick: addSpotClick,
 
