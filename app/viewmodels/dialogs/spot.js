@@ -1,4 +1,4 @@
-﻿define(["knockout","plugins/dialog","plugins/router"], function (ko,dialog,router) {
+﻿define(["knockout","durandal/app","plugins/dialog","plugins/router"], function (ko,app,dialog,router) {
     var
         spot = ko.observable(),
 
@@ -7,8 +7,9 @@
         },
 
         close = function () {
+
             var self = this;
-            dialog.close(self);
+            dialog.close(self, 1);
         },
         addStepClick = function () {
 

@@ -8,7 +8,7 @@
     <button data-bind="click: $parent.addStepClick" type="button" class="btn btn-default">
         <span class="glyphicon glyphicon-plus"></span> Add Step
     </button>
-    <button data-bind="click: $parent.close" type="button" class="btn btn-default">
+    <button data-bind="click: $parent.close.bind($parent)" type="button" class="btn btn-default">
         <span class="glyphicon glyphicon-remove-circle"></span> Close
     </button>
 </div>
