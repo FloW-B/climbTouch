@@ -2,10 +2,10 @@
 
     
     
-    <button data-bind="click:addSpotClick" type="button" class="btn btn-default">
+    <button data-bind="click: addSpotClick" type="button" class="btn btn-default">
         <span class="glyphicon glyphicon-plus"></span> Add
     </button>
-    <button data-bind="visible: gViewVisibility" type="button" class="btn btn-default">
+    <button data-bind="visible: gViewVisibility, click: clearStep" type="button" class="btn btn-default">
         <span class="glyphicon glyphicon-globe"></span> Global View
     </button>
 </div>

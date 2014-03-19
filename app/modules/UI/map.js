@@ -29,6 +29,12 @@
                 markersStep = ko.unwrap(value.markersStep),
                 map = element.map;
 
+            markersStepVisible = element.markersStep;
+            _.each(markersStepVisible, function (marker) {
+
+                marker.setMap(null);
+            });
+
             markersStep = _.map(markersStep, function (marker) {
 
                 var googleMarker = new gmap.Marker({
@@ -45,6 +51,9 @@
 
                 return googleMarker;
             });
+
+            //put markersStep in the element (Cache)
+            element.markersStep = markersStep;
 
             markers = _.map(markers, function (marker) {
 

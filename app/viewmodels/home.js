@@ -5,6 +5,7 @@ define(["jquery","knockout", "durandal/app", "durandal/system", "plugins/router"
         isLoading = ko.observable(false),
         sites = ko.observableArray(),
         gViewVisibility = ko.observable(false),
+        currentSpot = null,
         markers = sites._map(function (site) {
             return {
                 spotId: site.spotId,
@@ -16,6 +17,8 @@ define(["jquery","knockout", "durandal/app", "durandal/system", "plugins/router"
                 click: onMarkerClick
             };
         }),
+        markersVisible = ko.observableArray(),
+
         markersStep = ko.observableArray(),
         center = ko.computed(function () {
             var location = geoloc.currentLocation();
@@ -28,16 +31,28 @@ define(["jquery","knockout", "durandal/app", "durandal/system", "plugins/router"
         // Private Properties
         messageTitle = "Application Message",
         message = "Hello from your application",
-        url = "http://climbtouch.com/api/spot/",
 
         // Event Handlers
+        clearStep = function () {
+
+            if (currentSpot != null) {
+                
+                gViewVisibility(false);
+                markersStep([]);
+            } else {
+
+                throw "Error: currentSpot is not defined";
+            }
+        },
 
         onMarkerClick = function (marker) {
             gViewVisibility(true);
             $.get("http://climbtouch.com/api/step/filter/" + marker.spotId).then(function (response) {
 
                 markersStep(response);
+                currentSpot = marker.spotId;
             });
+            
             app.showDialog("viewmodels/dialogs/spot",marker);
         },
 
@@ -49,7 +64,7 @@ define(["jquery","knockout", "durandal/app", "durandal/system", "plugins/router"
         activate = function activate() {
             isLoading(true);
 
-            $.get(url).then(function (response) {
+            $.get("http://climbtouch.com/api/spot/").then(function (response) {
                 sites(response);
                 geoloc.start();
                 isLoading(false);
@@ -61,8 +76,6 @@ define(["jquery","knockout", "durandal/app", "durandal/system", "plugins/router"
             geoloc.stop();
         };
 
-    
-
     return {
         
         isLoading: isLoading,
@@ -70,8 +83,10 @@ define(["jquery","knockout", "durandal/app", "durandal/system", "plugins/router"
         sites: sites,
         center: center,
         markers: markers,
+        markersVisible: markersVisible,
         markersStep: markersStep,
 
+        clearStep: clearStep,
         addSpotClick: addSpotClick,
 
         activate: activate,
